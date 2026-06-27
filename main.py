@@ -9,11 +9,11 @@ import google.generativeai as genai
 from gtts import gTTS
 
 # ==================== CONFIGURATION ====================
-API_ID = 1234567          # my.telegram.org se lein
-API_HASH = "your_hash"    # my.telegram.org se lein
-BOT_TOKEN = "your_token"  # @BotFather se lein
-GEMINI_KEY = "your_key"   # Google AI Studio se lein
-SUDO_USERS = [123456789]  # Owner User ID
+API_ID = 39164667          # my.telegram.org se lein
+API_HASH = "11f6bc964c83b8f5939c32129f65eac0"    # my.telegram.org se lein
+BOT_TOKEN = "8635488848:AAHybppnDHYCDnYfH1bIAMxYuR41T40LX3E"  # @BotFather se lein
+GEMINI_KEY = "AQ.Ab8RN6I-fhhsmDxiV_uigBPrChghb_63TCzgURopb1fRv-n2jg"   # Google AI Studio se lein
+SUDO_USERS = [6287950903]  # Owner User ID
 
 # AI Config
 genai.configure(api_key=GEMINI_KEY)
