@@ -188,19 +188,60 @@ function Inp({ value, onChange, placeholder, onKeyDown, type="text", style={} })
 }
 
 // ============ CHAT ============
-function ChatBubble({ msg }) {
-  const isUser = msg.role==="user";
+const ChatPanel = ({ personality }) => {
   return (
-    <div style={{ display:"flex", justifyContent:isUser?"flex-end":"flex-start", marginBottom:12 }}>
-      {!isUser && <div style={{ width:32, height:32, borderRadius:"50%", background:`linear-gradient(135deg,${C.violet},${C.cyan})`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:14, marginRight:8, flexShrink:0 }}>🔥</div>}
-      <div style={{ maxWidth:"75%", background:isUser?`linear-gradient(135deg,${C.cyan}22,${C.violet}22)`:C.card, border:`1px solid ${isUser?C.cyan+"44":C.border}`, borderRadius:isUser?"18px 18px 4px 18px":"18px 18px 18px 4px", padding:"10px 14px", color:C.text, fontSize:13, lineHeight:1.6, whiteSpace:"pre-wrap", wordBreak:"break-word" }}>
-        {msg.image && <img src={msg.image} alt="gen" style={{ maxWidth:"100%", borderRadius:8, marginBottom:8 }} />}
-        {msg.content}
-        <div style={{ fontSize:10, color:C.muted, marginTop:4, textAlign:"right" }}>{msg.time}</div>
+    <div style={{ 
+      display: "flex", 
+      flexDirection: "column", 
+      height: "calc(100vh - 60px)", // Top nav bar ki height minus karke
+      position: "relative",
+      background: "#0a0a0a" 
+    }}>
+      
+      {/* Messages Area (Scrollable) */}
+      <div style={{ 
+        flex: 1, 
+        overflowY: "auto", 
+        padding: "20px" 
+      }}>
+        {/* Messages yahan aayenge */}
+        <div style={{ color: "#888", textAlign: "center", marginTop: "20px" }}>
+          🔥 Shadow_X AI online! Kya scene hai bhai? 😎
+        </div>
+      </div>
+
+      {/* FIXED TYPE BAR (Bottom Section) */}
+      <div style={{ 
+        padding: "15px", 
+        background: "#121212", 
+        borderTop: "1px solid #2a2a2a",
+        display: "flex", 
+        gap: "10px",
+        alignItems: "center"
+      }}>
+        <input 
+          placeholder="Kuch bhi bol..." 
+          style={{ 
+            flex: 1, 
+            padding: "12px 15px", 
+            borderRadius: "8px", 
+            background: "#0a0a0a", 
+            color: "#ececec", 
+            border: "1px solid #2a2a2a" 
+          }}
+        />
+        <button style={{ 
+          padding: "10px 15px", 
+          background: "linear-gradient(45deg, #00d4ff, #8a2be2)", 
+          border: "none", 
+          borderRadius: "8px", 
+          cursor: "pointer" 
+        }}>⚡</button>
       </div>
     </div>
   );
-}
+};
+
 
 function ChatPanel({ personality }) {
   const [messages, setMessages] = useStorage("chat_msgs", [{ role:"assistant", content:"🔥 Shadow_X AI online! Sambanova powered! Kya scene hai bhai? 😎", time:"now" }]);
