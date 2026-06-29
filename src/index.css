@@ -1,0 +1,11 @@
+/* src/index.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: #ececec;
+  font-family: sans-serif;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 10px; }
